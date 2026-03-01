@@ -37,3 +37,44 @@
     justify-content: center;
     align-items: center;
 }
+
+#increment, #decrement{
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    border:1px solid #d3d3d3;
+    font-size: 20px;
+    color:white;
+}
+#decrement{
+    background: rgb(245, 31, 31);
+}
+#increment{
+    background: green;
+}
+
+.box-form{
+    padding:30px;
+    display: flex;
+    gap:30px;
+}
+#submitBtn{
+    width:100px;
+    height:30px;
+    border-radius:20px;
+    border:1px solid #d3d3d3;
+    font-size: 15px;
+}
+#email, #text{
+    height: 23px;
+}
+.card{
+    border:1px solid #d3d3d3;
+    border-radius:20px;
+    display:flex;
+    align-items: center;
+    gap:30px;
+    width:200px;
+    padding: 20px;
+    margin-left:30px;
+}
