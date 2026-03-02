@@ -1,11 +1,48 @@
 import Navbar from "./components/Navbar.jsx"
 import Header from "./components/Header.jsx"
 import List from "./components/List.jsx"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Form from "./components/Form.jsx"
 import Main from "./components/Main.jsx"
 
 function App() {
+  const [users, setUsers] = useState();
+  const [trigger, setTrigger] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getData = async ()=>{
+    const promise = await fetch('https://jsonplaceholder.typicode.com/users');
+    const json = await promise.json();
+    setUsers(json);
+    console.log(json);
+  }
+
+  useEffect(()=>{
+    
+    if(trigger){
+      setTimeout(()=>{
+        getData();
+        setIsLoading(false)
+      }, 2000)
+    }
+
+  }, [trigger] );
+
+  const handleClick = ()=>{
+    if (isVisible){
+      setIsVisible(false);
+      setTrigger(false);
+      setUsers(null);
+    }else{
+      setIsVisible(true);
+      setTrigger(true);
+      setIsLoading(true);
+    }
+  }
+
+
+  // Compound components da finire ancora
   const [nameList, setNameList] = useState(["Scarpe", "Felpe"]);
   const [newName, setNewName] = useState();
 
@@ -23,6 +60,18 @@ function App() {
 
       <Navbar />
       <Header />
+      {/* Async */}
+      <h1>Async Lesson</h1>
+      <button onClick={handleClick}>Click here!</button>
+      {isLoading && <p>Loading data...</p>}
+      <ul>
+        {isVisible && users && users.map((user)=>{
+          return <li>{user.name} - {user.email}</li>
+        })}
+      </ul>
+
+
+      {/* Compound components da finire ancora */}
       <Main>
         <Form handleChange={handleChange} addNewName={addNewName} newName={newName}></Form>
         <List>
