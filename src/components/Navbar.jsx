@@ -1,12 +1,15 @@
-export default function Navbar() {
+import {Link} from "react-router";
+
+function Navbar() {
     return (
         <nav className="navcustom">
             <div className="link">
 
-                <a href="/" className="nav-link">Home</a>
-                <a href="/" className="nav-link">Shop</a>
+                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/info" className="nav-link">Info</Link>
 
             </div>
         </nav>
     )
 }
+export default Navbar;

@@ -31,6 +31,10 @@
     text-decoration: none;
 }
 
+.infoPage, .detailPage, .homepage{
+    padding:50px
+}
+
 .h-title{
     height:50vh;
     display:flex;
