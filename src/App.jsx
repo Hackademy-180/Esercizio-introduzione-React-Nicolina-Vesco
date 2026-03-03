@@ -4,6 +4,7 @@ import List from "./components/List.jsx"
 import { useEffect, useState } from 'react'
 import Form from "./components/Form.jsx"
 import Main from "./components/Main.jsx"
+import ListLi from "./components/ListLi.jsx"
 
 function App() {
   const [users, setUsers] = useState();
@@ -71,17 +72,14 @@ function App() {
       </ul>
 
 
-      {/* Compound components da finire ancora */}
+      {/* Compound components*/}
       <Main>
         <Form handleChange={handleChange} addNewName={addNewName} newName={newName}></Form>
         <List>
-          {nameList.map((name, item) => {
-            return (
-              <li key={item}>{name}</li>
-            )
-          })
-
-          }
+          {nameList.map((name, item) => (
+            <List.Li key={item}>{name}
+            </List.Li>
+          ))}
         </List>
 
       </Main>

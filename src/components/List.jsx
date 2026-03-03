@@ -1,10 +1,17 @@
-export default function List ({children}){
+import ListLi from "./ListLi.jsx";
+
+
+function List ({children}){
     return(
         <ul className="list-product">
             {children}
         </ul>
     )
 }
+
+List.Li = ListLi;
+
+export default List;
 
 
 
